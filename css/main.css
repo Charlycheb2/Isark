@@ -36,11 +36,11 @@ body {
   max-width:250px;
   margin-top:8%;
   margin-bottom:5%;
-  background-color:#0000EE;
+  background-color:#4E4D4E;
   border-bottom-right-radius:5%;
   border-bottom-left-radius:5%;
   box-shadow:5px 4px 10px 1px #000000;
-  border:3px outset #0000EE;
+  border:3px outset #4E4D4E;
 }
 
 #memoryNegativeError {
@@ -84,7 +84,7 @@ body {
 
 .solarPanel {
   height:30px;
-  background-color:#505050;
+  background-color:#333233;
   border-top:1px inset #000000;
   border-bottom:1px inset #000000;
 }
@@ -108,14 +108,14 @@ div .solarPanel:nth-child(7) {
 }
 
 #bottomLine {
-  border-bottom:1px outset #0000EE;
+  border-bottom:1px outset #272727;
   width:245px;
   margin-left:-15px;
 }
 
 #buttons {
   margin-top:45px;
-  border:1px inset #0000EE;
+  border:1px inset #272727;
   margin-left:-5px;
   margin-right:-7px;
   padding-left:5px;
@@ -136,11 +136,11 @@ div .solarPanel:nth-child(7) {
 }
 
 .btn-danger {
-  border:2px outset #FF0000;
+  border:2px outset #F8C8DC;
 }
 
 #equalsKey {
-  padding-bottom:50px;
+  padding-bottom:500px;
 }
 
 #equalsKey:focus {
@@ -156,7 +156,7 @@ div .solarPanel:nth-child(7) {
 }
 
 .btn-danger:focus {
-  background-color:#d9534f;
+  background-color:#F8C8DC;
   border:1px solid black;
 }
 
