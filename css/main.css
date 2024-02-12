@@ -36,11 +36,11 @@ body {
   max-width:250px;
   margin-top:8%;
   margin-bottom:5%;
-  background-color:#4E4D4E;
+  background-color:#055499;
   border-bottom-right-radius:5%;
   border-bottom-left-radius:5%;
   box-shadow:5px 4px 10px 1px #000000;
-  border:3px outset #4E4D4E;
+  border:3px outset #055499;
 }
 
 #memoryNegativeError {
@@ -66,8 +66,8 @@ body {
   display:inline-block;
   max-width:180px;
   margin-top:30px;
-  color:#000000;
-  background-color:#C0C0C0;
+  color:#565a51;
+  background-color:#c0c0c0;
   cursor:default;
   font-size:25px;
   font-family: 'Orbitron', sans-serif;
@@ -76,8 +76,8 @@ body {
   padding-top:0px;
   padding-left:0px;
   padding-right:2px;
-  border:1px inset #505050;
-  border-left:0 solid #C0C0C0;
+  border:1px inset #565a51;
+  border-left:0 solid #565a51;
   border-top-left-radius:0;
   border-bottom-left-radius:0;
 }
@@ -108,14 +108,14 @@ div .solarPanel:nth-child(7) {
 }
 
 #bottomLine {
-  border-bottom:1px outset #272727;
+  border-bottom:1px outset #044C8B;
   width:245px;
   margin-left:-15px;
 }
 
 #buttons {
   margin-top:45px;
-  border:1px inset #272727;
+  border:1px inset #044C8B;
   margin-left:-5px;
   margin-right:-7px;
   padding-left:5px;
