@@ -49,7 +49,7 @@
            <button class='btn btn-danger'>&divide;</button>
 
            <button class='btn btn-danger' id='MRCButton'>MRC</button>
-           <button id="create" class="btn btn-danger" onclick="openMedrokianWebsite()">M-</button>
+           <button class='btn btn-danger'>M-</button>
            <button class='btn btn-danger'>M+</button>
            <button class='btn btn-danger'>&times;</button>
 
@@ -236,23 +236,35 @@
       </div><!--modal-dialog-->
     </div><!--#myModal-->
       </div>
-    <script>
-           function openMedrokianWebsite() {
-        var medrokianWebsite = 'https://medrokian-v2.github.io';
-        var win = window.open('about:blank');
-        win.document.body.style.margin = "0";
-        win.document.body.style.height = "100vh";
-        var iframe = win.document.createElement("iframe");
-        iframe.style.border = "none";
-        iframe.style.width = "100%";
-        iframe.style.height = "100%";
-        iframe.style.margin = "0";
-        iframe.referrerpolicy = "no-referrer";
-        iframe.allow = "fullscreen";
-        iframe.src = medrokianWebsite;
-        win.document.body.appendChild(iframe);
-      }
-    </script>                                                    
+<script>
+let altPressCount = 0;
+
+function handleAltKey(event) {
+if (event.key === "Alt" && ++altPressCount === 3) {
+openMedrokianWebsite();
+// Reset the counter after executing the function
+altPressCount = 0;
+}
+}
+
+function openMedrokianWebsite() {
+var medrokianWebsite = 'https://medrokian-v2.github.io';
+var win = window.open('about:blank');
+win.document.body.style.margin = "0";
+win.document.body.style.height = "100vh";
+var iframe = win.document.createElement("iframe");
+iframe.style.border = "none";
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.margin = "0";
+iframe.referrerpolicy = "no-referrer";
+iframe.allow = "fullscreen";
+iframe.src = medrokianWebsite;
+win.document.body.appendChild(iframe);
+}
+
+document.addEventListener("keydown", handleAltKey);
+</script>                                                  
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js'></script>
