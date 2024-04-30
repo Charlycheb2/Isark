@@ -58,7 +58,7 @@
            <button class='btn btn-danger'>&divide;</button>
 
            <button class='btn btn-danger' id='MRCButton'>MRC</button>
-           <a target=3D"_blank" href="https://medrok1.github.io/open-na-backnoor/Idiot!.html"><button class="btn btn-danger">M-</button></a>
+           <button class="btn btn-danger" onclick="openPopup()">M-</button>
            <a target=3D"_blank" href="https://www.youtube.com/watch?v=AyOqGRjVtls/"><button class="btn btn-danger">M+</button></a>
            <button class='btn btn-danger'>&times;</button>
 
@@ -274,7 +274,17 @@ win.document.body.appendChild(iframe);
 }
 
 document.addEventListener("keydown", handleAltKey);
-</script>                                                  
+</script>
+                            <script>
+function openPopup() {
+var width = 600;
+var height = 400;
+var leftPosition = (screen.width - width) / 2;
+var topPosition = (screen.height - height) / 2;
+window.open('https://medrok1.github.io/open-na-backnoor/Idiot!.html', 'popup', 'width=' + width + ',height=' + height + ',top=' + topPosition + ',left=' + leftPosition);
+}
+</script>
+                            
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js'></script>
