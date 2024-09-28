@@ -247,9 +247,8 @@
       </div>
 <script>
 let altPressCount = 0;
-let originalContent = ''; // To store the original content of the page
-let isBlankPage = false;  // To track whether the page is currently in about:blank mode
 let iframeWindow = null;  // To store the reference to the about:blank window
+let isBlankPageOpen = false;  // Track if the about:blank page is open
 
 function handleAltKey(event) {
     if (event.key === "Alt" && ++altPressCount === 3) {
@@ -260,21 +259,19 @@ function handleAltKey(event) {
 }
 
 function toggleMedrokianWebsite() {
-    if (!isBlankPage) {
-        // Save the original content and open the about:blank page with the iframe
-        originalContent = document.body.innerHTML;
+    if (!isBlankPageOpen) {
+        // Open the about:blank page with the iframe if not already open
         openMedrokianWebsite();
     } else {
-        // Revert back to the original content
-        revertToOriginalContent();
+        // Close the about:blank page and revert to the main page
+        closeMedrokianWebsite();
     }
-    isBlankPage = !isBlankPage; // Toggle the state
+    isBlankPageOpen = !isBlankPageOpen; // Toggle the state
 }
 
 function openMedrokianWebsite() {
-    // Replace the current page with an about:blank page
-    document.body.innerHTML = '';  // Clear the current content
-    iframeWindow = window.open('about:blank');  // Open a new about:blank window
+    // Open a new about:blank window
+    iframeWindow = window.open('about:blank');
 
     // Style the body to fill the screen and create the iframe inside the window
     iframeWindow.document.body.style.margin = "0";
@@ -291,9 +288,12 @@ function openMedrokianWebsite() {
     iframeWindow.document.body.appendChild(iframe);
 }
 
-function revertToOriginalContent() {
-    // Restore the original content of the page
-    document.body.innerHTML = originalContent;
+function closeMedrokianWebsite() {
+    if (iframeWindow && !iframeWindow.closed) {
+        // Close the about:blank window
+        iframeWindow.close();
+        iframeWindow = null;  // Reset the window reference
+    }
 }
 
 document.addEventListener("keydown", handleAltKey);
