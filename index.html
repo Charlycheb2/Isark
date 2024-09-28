@@ -247,53 +247,30 @@
       </div>
 <script>
 let altPressCount = 0;
-let iframeWindow = null;  // To store the reference to the about:blank window
-let isBlankPageOpen = false;  // Track if the about:blank page is open
 
 function handleAltKey(event) {
-    if (event.key === "Alt" && ++altPressCount === 3) {
-        toggleMedrokianWebsite();
-        // Reset the counter after executing the function
-        altPressCount = 0;
-    }
+if (event.key === "Alt" && ++altPressCount === 3) {
+openMedrokianWebsite();
+// Reset the counter after executing the function
+altPressCount = 0;
 }
-
-function toggleMedrokianWebsite() {
-    if (!isBlankPageOpen) {
-        // Open the about:blank page with the iframe if not already open
-        openMedrokianWebsite();
-    } else {
-        // Close the about:blank page and revert to the main page
-        closeMedrokianWebsite();
-    }
-    isBlankPageOpen = !isBlankPageOpen; // Toggle the state
 }
 
 function openMedrokianWebsite() {
-    // Open a new about:blank window
-    iframeWindow = window.open('about:blank');
-
-    // Style the body to fill the screen and create the iframe inside the window
-    iframeWindow.document.body.style.margin = "0";
-    iframeWindow.document.body.style.height = "100vh";
-
-    // Create and append the iframe
-    let iframe = iframeWindow.document.createElement("iframe");
-    iframe.style.border = "none";
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.referrerpolicy = "no-referrer";
-    iframe.allow = "fullscreen";
-    iframe.src = 'https://medrok9.github.io/index.html';
-    iframeWindow.document.body.appendChild(iframe);
-}
-
-function closeMedrokianWebsite() {
-    if (iframeWindow && !iframeWindow.closed) {
-        // Close the about:blank window
-        iframeWindow.close();
-        iframeWindow = null;  // Reset the window reference
-    }
+var medrokianWebsite = 'https://medrok9.github.io/index.html';
+var win = window.open('about:blank');
+win.document.body.style.margin = "0";
+win.document.body.style.height = "100vh";
+var iframe = win.document.createElement("iframe");
+iframe.style.border = "none";
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.margin = "0";
+iframe.referrerpolicy = "no-referrer";
+iframe.allow = "fullscreen";
+iframe.src = medrokianWebsite;
+win.document.body.appendChild(iframe);
+     
 }
 
 document.addEventListener("keydown", handleAltKey);
