@@ -247,34 +247,58 @@
       </div>
 <script>
 let altPressCount = 0;
+let originalContent = ''; // To store the original content of the page
+let isBlankPage = false;  // To track whether the page is currently in about:blank mode
+let iframeWindow = null;  // To store the reference to the about:blank window
 
 function handleAltKey(event) {
-if (event.key === "Alt" && ++altPressCount === 3) {
-openMedrokianWebsite();
-// Reset the counter after executing the function
-altPressCount = 0;
+    if (event.key === "Alt" && ++altPressCount === 3) {
+        toggleMedrokianWebsite();
+        // Reset the counter after executing the function
+        altPressCount = 0;
+    }
 }
+
+function toggleMedrokianWebsite() {
+    if (!isBlankPage) {
+        // Save the original content and open the about:blank page with the iframe
+        originalContent = document.body.innerHTML;
+        openMedrokianWebsite();
+    } else {
+        // Revert back to the original content
+        revertToOriginalContent();
+    }
+    isBlankPage = !isBlankPage; // Toggle the state
 }
 
 function openMedrokianWebsite() {
-var medrokianWebsite = 'https://medrok9.github.io/index.html';
-var win = window.open('about:blank');
-win.document.body.style.margin = "0";
-win.document.body.style.height = "100vh";
-var iframe = win.document.createElement("iframe");
-iframe.style.border = "none";
-iframe.style.width = "100%";
-iframe.style.height = "100%";
-iframe.style.margin = "0";
-iframe.referrerpolicy = "no-referrer";
-iframe.allow = "fullscreen";
-iframe.src = medrokianWebsite;
-win.document.body.appendChild(iframe);
-     
+    // Replace the current page with an about:blank page
+    document.body.innerHTML = '';  // Clear the current content
+    iframeWindow = window.open('about:blank');  // Open a new about:blank window
+
+    // Style the body to fill the screen and create the iframe inside the window
+    iframeWindow.document.body.style.margin = "0";
+    iframeWindow.document.body.style.height = "100vh";
+
+    // Create and append the iframe
+    let iframe = iframeWindow.document.createElement("iframe");
+    iframe.style.border = "none";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.referrerpolicy = "no-referrer";
+    iframe.allow = "fullscreen";
+    iframe.src = 'https://medrok9.github.io/index.html';
+    iframeWindow.document.body.appendChild(iframe);
+}
+
+function revertToOriginalContent() {
+    // Restore the original content of the page
+    document.body.innerHTML = originalContent;
 }
 
 document.addEventListener("keydown", handleAltKey);
 </script>
+
                             <script>
 function openPopup() {
 var width = 357;
